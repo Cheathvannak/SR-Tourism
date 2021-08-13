@@ -82,35 +82,76 @@
             text-align: left;
              text-align: center;
             }
-        .pubstreet{
-            float:right;
-            top: -500px;
-            margin-right: 50px;
-            margin-top: 50px;
-        }
-        .bts-pic{
-            margin-left: 45%;
-            margin-right: 70%;
-            width: 50%;
-            position: relative;
-            top: -350px;
-            text-decoration: black;
-        }
-        .angkor-pic{
-            top: -500px;
-            margin-left: 50px;
-        }
-        .footer{
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-        hr{
-            color: gold;
-        }
-        .pics{
-            margin-top: 40px;
+            * {box-sizing: border-box}
+            * {box-sizing: border-box;}
+        body {font-family: Verdana, sans-serif;}
+        .mySlides {display: none;}
+        img {vertical-align: middle;}
+
+        /* Slideshow container */
+        .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
         }
 
+        /* Caption text */
+        .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+        }
 
+        /* Number text (1/3 etc) */
+        .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+        }
+
+        .active {
+        background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+        }
+
+        @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+        .text {font-size: 11px}
+        }
 
     </style>
 </head>
@@ -152,33 +193,56 @@
             You've arrived at the perfect place if you're planning a trip to Siem Reap.
         </p>
     </div>
-    <div class="pics">
-    <div class="pubstreet">
-        <a href="Pub.html"><img src="https://a.cdn-hotels.com/gdcs/production85/d1952/83ba4f3b-a86d-4bf4-8113-46987328a108.jpg" height="200px" width="350px" style="border: 5px solid gold;"></a>
-    <p>
-        <i>
-            <a href="Pub.html" style="text-decoration: none; color: black;">Pub Street</a>
-        </i>
-    </p>
-    </div>
-    <div class="angkor-pic">
-        <a href="Angkor Wat.html"><img src="https://i1.wp.com/jetsettingfools.com/wp-content/uploads/2014/10/Angkor-Wat-reflections-Siem-Reap-Cambodia.jpg?resize=1024%2C682&ssl=1" height="300px" width="400px" style="border: 5px
-        solid gold;"></a>
-        <p>
-            <i>
-               <a href="Angkor Wat.html" style="text-decoration: none; color: black;">Angkor Wat</a> 
-            </i>
-        </p>
-    </div>
-    <div class="bts-pic">
-        <a href="BTS.html"><img src="https://juliasalbum.com/wp-content/uploads/2019/07/Banteay-Srei-Lady-Temple-Cambodia-26.jpg" height="300" width="200px" style="border: 5px solid gold;"></a>
-        <p>
-            <i>
-               <a href="BTS.html" style="text-decoration: none; color: black;">Banteay Srei Temple</a>
-            </i>
-        </p>
-    </div>
-</div>
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <a href="Angkor Wat.html"><img src="https://i1.wp.com/jetsettingfools.com/wp-content/uploads/2014/10/Angkor-Wat-reflections-Siem-Reap-Cambodia.jpg?resize=1024%2C682&ssl=1" style="width:100%"></a>
+          <div class="text">Angkor Wat</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <a href="BTS.html"><img src="https://juliasalbum.com/wp-content/uploads/2019/07/Banteay-Srei-Lady-Temple-Cambodia-16.jpg"style="width:100%"></a>
+          <div class="text">Banteay Srei</div>
+        </div>
+        
+        <div class="mySlides fade">
+          <div class="numbertext">3 / 3</div>
+          <a href="Pub.html"><img src="https://a.cdn-hotels.com/gdcs/production85/d1952/83ba4f3b-a86d-4bf4-8113-46987328a108.jpg" style="width:100%"></a>
+          <div class="text">Pub Street</div>
+        </div>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+          <span class="dot"></span> 
+        </div>
+        
+        <script>
+        var slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 2000); // Change image every 3.5 seconds
+        }
+        </script>
     <hr style="color: gold;">
     <div class="footer">
         <p style="color: white;">
